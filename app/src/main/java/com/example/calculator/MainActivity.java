@@ -7,12 +7,15 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.radiobutton.MaterialRadioButton;
+
 import java.text.DecimalFormat;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
     private TextView result;
     private Boolean isNull = true;
     private String operator = "";
@@ -24,9 +27,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initThemeChooser();
         initView();
 
+
     }
+
 
 
     public void initView() {
@@ -310,6 +316,24 @@ public class MainActivity extends AppCompatActivity {
         } else {
             return false;
         }
+    }
+
+
+    private void initThemeChooser() {
+        initRadioButton(findViewById(R.id.radioButtonThemeCalculator), MyThemeBlackCodeStyle);
+        initRadioButton(findViewById(R.id.radioButtonMyThemeGrey), MyThemeGreyCodeStyle);
+        RadioGroup rg = findViewById(R.id.radioButtons);
+        ((MaterialRadioButton) rg.getChildAt(getCodeStyle(MyThemeBlackCodeStyle))).setChecked(true);
+    }
+
+    private void initRadioButton(View button, final int codeStyle) {
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setAppTheme(codeStyle);
+                recreate();
+            }
+        });
     }
 
 }

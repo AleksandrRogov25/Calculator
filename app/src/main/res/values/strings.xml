@@ -20,4 +20,6 @@
     <string name="btn_plus_minus">+/-</string>
     <string name="btn_percentage">%</string>
     <string name="result_text">0</string>
+    <string name="theme_calculator">Black</string>
+    <string name="my_theme_grey">Gray</string>
 </resources>
