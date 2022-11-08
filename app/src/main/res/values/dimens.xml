@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="button_text">24sp</dimen>
+    <dimen name="result_text_size">32sp</dimen>
+    <dimen name="margin">4dp</dimen>
+    <dimen name="alpha">0.8</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="text_settings">28sp</dimen>
+    <dimen name="button_settings">20sp</dimen>
+    <dimen name="settings_theme">32sp</dimen>
+</resources>
