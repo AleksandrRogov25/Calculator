@@ -10,12 +10,25 @@
         android:supportsRtl="true"
         android:theme="@style/ThemeCalculator">
         <activity
+            android:name=".SettingsActivity"
+            android:exported="false"
+             />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                    <category android:name="android.intent.category.BROWSABLE"/>
+                        <category android:name="android.intent.category.DEFAULT"/>
+
+                            <data
+                                android:scheme="calculator"
+                                android:host="launch"/>
             </intent-filter>
         </activity>
     </application>

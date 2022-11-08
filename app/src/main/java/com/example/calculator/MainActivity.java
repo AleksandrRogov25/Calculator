@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -27,7 +28,6 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initThemeChooser();
         initView();
 
 
@@ -56,8 +56,9 @@ public class MainActivity extends BaseActivity {
         Button btn_add = findViewById(R.id.btn_add);
         Button btn_dot = findViewById(R.id.btn_dot);
         Button btn_equal = findViewById(R.id.btn_equal);
+        Button buttonSettings = findViewById(R.id.button_settings);
 
-
+        settingsSetOnClickListener(buttonSettings);
         buttonSetOnClickListener(btn_1);
         buttonSetOnClickListener(btn_2);
         buttonSetOnClickListener(btn_3);
@@ -317,21 +318,12 @@ public class MainActivity extends BaseActivity {
             return false;
         }
     }
-
-
-    private void initThemeChooser() {
-        initRadioButton(findViewById(R.id.radioButtonThemeCalculator), MyThemeBlackCodeStyle);
-        initRadioButton(findViewById(R.id.radioButtonMyThemeGrey), MyThemeGreyCodeStyle);
-        RadioGroup rg = findViewById(R.id.radioButtons);
-        ((MaterialRadioButton) rg.getChildAt(getCodeStyle(MyThemeBlackCodeStyle))).setChecked(true);
-    }
-
-    private void initRadioButton(View button, final int codeStyle) {
-        button.setOnClickListener(new View.OnClickListener() {
+    private void settingsSetOnClickListener(Button btn) {
+        btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setAppTheme(codeStyle);
-                recreate();
+                Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+                startActivity(intent);
             }
         });
     }
